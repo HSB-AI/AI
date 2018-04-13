@@ -1,1 +1,1 @@
-Some AI in Java as preperation for maybe a Starcraft2 bot
+Some AI in Java as preparation for a Starcraft2 bot
