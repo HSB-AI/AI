@@ -1,6 +1,6 @@
 The "AGreedyDjikstar" Framework offers solutions to problems.
 The problem must be expressed as a tree or graph.
-A "Graph" object is always required though, because a tree is just a graph without cycles)
+A "Graph" object is always required though, because a tree is just a graph without cycles
 
 Available solving methods use the formula
 
