@@ -43,8 +43,7 @@ public class AGreddyDijkstar
 		graphSearch(SearchType.A_Star, graph, source, target);
 	}
 	
-	
-	
+		
 	
 	public static void graphSearch(SearchType searchType, Graph graph, Node source, Node target)
 	{		
