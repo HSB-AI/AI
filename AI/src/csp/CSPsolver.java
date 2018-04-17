@@ -130,7 +130,7 @@ public class CSPsolver<T>
 	 * 	FILTERING
 	 *****************************************************************************************/	
 	
-	//TODO: arc consistency!
+	//TODO: arc consistency using AC-3!
 	
 	// only checks assigned variable and its neighbors!
 	public Set<Variable<T>> forwardChecking(Set<Arc<T>> arcs, Variable<T> assigned)
