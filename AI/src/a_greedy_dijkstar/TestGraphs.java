@@ -1,6 +1,8 @@
-package a.greedy.dijkstar;
+package a_greedy_dijkstar;
 
-import a.greedy.dijkstar.AGreddyDijkstar.SearchType;
+import a_greedy_dijkstar.AGreddyDijkstar.SearchType;
+import a_greedy_dijkstar.entities.Graph;
+import a_greedy_dijkstar.entities.Node;
 
 public class TestGraphs {
 

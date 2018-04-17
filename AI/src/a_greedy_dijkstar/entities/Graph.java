@@ -1,4 +1,4 @@
-package a.greedy.dijkstar;
+package a_greedy_dijkstar.entities;
 
 import java.util.HashSet;
 import java.util.Set;

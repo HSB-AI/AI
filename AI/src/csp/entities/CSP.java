@@ -1,4 +1,4 @@
-package csp;
+package csp.entities;
 
 import java.util.Set;
 

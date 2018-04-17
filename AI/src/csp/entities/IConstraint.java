@@ -1,4 +1,4 @@
-package csp;
+package csp.entities;
 
 public interface IConstraint
 {

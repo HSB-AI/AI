@@ -3,6 +3,11 @@ package csp;
 import java.util.HashSet;
 import java.util.Set;
 
+import csp.entities.Arc;
+import csp.entities.CSP;
+import csp.entities.IConstraint;
+import csp.entities.Variable;
+
 public class CSPsolver<T>
 {
 	

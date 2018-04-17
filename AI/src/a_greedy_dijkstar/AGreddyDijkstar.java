@@ -1,9 +1,13 @@
-package a.greedy.dijkstar;
+package a_greedy_dijkstar;
 
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.Map.Entry;
+
+import a_greedy_dijkstar.entities.Graph;
+import a_greedy_dijkstar.entities.Node;
+
 import java.util.Set;
 
 public class AGreddyDijkstar
