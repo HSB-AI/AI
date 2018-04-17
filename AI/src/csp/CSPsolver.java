@@ -5,7 +5,7 @@ import java.util.Set;
 
 public class CSPsolver<T>
 {
-
+	
 	public boolean backtrackSearch(CSP<T> problem)
 	{
 		if (

@@ -28,7 +28,7 @@ public class CSPtest<T>
 		Variable<String> nsw = new Variable<>("NSW", domain);
 		Variable<String> v = new Variable<>("V", domain);
 		Variable<String> sa = new Variable<>("SA", domain);
-//		Variable t = new Variable("T", domain);
+		Variable<String> t = new Variable<>("T", domain);
 		
 		Set<Variable<String>> vars = new HashSet<>();
 		vars.add(wa);
@@ -38,6 +38,7 @@ public class CSPtest<T>
 		vars.add(v);
 		vars.add(sa);
 		vars.add(wa);
+		vars.add(t);
 								
 		Set<Arc<String>> arcs = new HashSet<>();
 		
