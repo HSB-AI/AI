@@ -77,7 +77,7 @@ public class CSPsolver<T>
 	
 	
 	
-	public boolean constraintsSatisfied(Set<Arc<T>> arcs, IConstraint constr)
+	private boolean constraintsSatisfied(Set<Arc<T>> arcs, IConstraint constr)
 	{		
 		for ( Arc<T> arc : arcs )
 		{
@@ -94,7 +94,7 @@ public class CSPsolver<T>
 	 * 	ORDERING
 	 *****************************************************************************************/
 	
-	public Variable<T> nextVar(Set<Variable<T>> vars, boolean mrv)
+	private Variable<T> nextVar(Set<Variable<T>> vars, boolean mrv)
 	{
 		Variable<T> selected = null;
 		int minSize = Integer.MAX_VALUE;
@@ -133,7 +133,7 @@ public class CSPsolver<T>
 	//TODO: arc consistency using AC-3!
 	
 	// only checks assigned variable and its neighbors!
-	public Set<Variable<T>> forwardChecking(Set<Arc<T>> arcs, Variable<T> assigned)
+	private Set<Variable<T>> forwardChecking(Set<Arc<T>> arcs, Variable<T> assigned)
 	{
 		boolean filtered;
 		Variable<T> filterTarget = null;
@@ -159,7 +159,7 @@ public class CSPsolver<T>
 	
 	
 	
-	public void undoForwardChecking(Set<Variable<T>> filteredVars, T filteredValue)
+	private void undoForwardChecking(Set<Variable<T>> filteredVars, T filteredValue)
 	{
 		if ( filteredVars == null )
 			return;
@@ -170,7 +170,7 @@ public class CSPsolver<T>
 	
 	
 	
-	public void printAssignments(Set<Variable<T>> vars)
+	private void printAssignments(Set<Variable<T>> vars)
 	{
 		System.out.println("--------------------");
 		for ( Variable<T> var : vars )
