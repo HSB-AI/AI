@@ -18,7 +18,7 @@ public class Node
 	
 	private HashMap<Node, Integer> adjacentNodes;	// adjacent nodes and their edge costs (g) to them
 	
-	private LinkedList<Node> shortestPath;				// shortest path to THIS node (from the source node that was used)
+	private LinkedList<Node> shortestPath;			// shortest path to THIS node (from the source node that was used)
 		
 	
 
