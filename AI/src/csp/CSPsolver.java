@@ -131,6 +131,37 @@ public class CSPsolver<T>
 	 *****************************************************************************************/	
 	
 	//TODO: arc consistency using AC-3!
+	private boolean makeArcConsistent(Arc<T> arc, IConstraint constr)
+	{
+		boolean changed = false;
+		boolean satisfactoryCombinationFound = false;
+		Set<T> toBeRemoved = new HashSet<>();
+		
+		Variable<T> var1 = arc.var1();
+		Variable<T> var2 = arc.var2();
+		
+		for ( T val1 : var1.possibleValues() )
+		{
+			satisfactoryCombinationFound = false;
+			
+			var1.assign(val1);
+			
+			for ( T val2 : var2.possibleValues() )
+			{
+				var2.assign(val2);
+				
+				if ( constr.isApplied(var1, var2) )
+				{
+					satisfactoryCombinationFound = true;
+					break;
+				}
+			}
+			
+			
+		}
+		
+		return changed;
+	}
 	
 	// only checks assigned variable and its neighbors!
 	private Set<Variable<T>> forwardChecking(Set<Arc<T>> arcs, Variable<T> assigned)
