@@ -1,6 +1,7 @@
 package csp;
 
 import java.util.HashSet;
+import java.util.NoSuchElementException;
 import java.util.Set;
 
 import csp.entities.Arc;
@@ -130,38 +131,73 @@ public class CSPsolver<T>
 	 * 	FILTERING
 	 *****************************************************************************************/	
 	
-	//TODO: arc consistency using AC-3!
+	private void enforceArcConsistency(Set<Arc<T>> arcs, IConstraint constr)
+	{
+		Set<Arc<T>> queue = new HashSet<>(arcs);
+		Arc<T> currentArc;
+		
+		while ( !queue.isEmpty() )
+		{
+			queue.iterator().next();
+		}
+	}
+	
+	
+	
+	//enforces the given arc to be bidirectional consistent (that is X -> Y & Y -> X)
 	private boolean makeArcConsistent(Arc<T> arc, IConstraint constr)
 	{
 		boolean changed = false;
-		boolean satisfactoryCombinationFound = false;
-		Set<T> toBeRemoved = new HashSet<>();
 		
 		Variable<T> var1 = arc.var1();
 		Variable<T> var2 = arc.var2();
 		
-		for ( T val1 : var1.possibleValues() )
+		if (removeValue(var1, var2, constr) )
+			changed = true;
+		
+		if (removeValue(var2, var1, constr) )
+			changed = true;
+		
+		if ( var1.emptyDomain() || var2.emptyDomain() )
+			throw new NoSuchElementException("There is no solution to the problem using the given constraints!");
+		
+		return changed;
+	}
+	
+	
+	
+	// X -> Y: for every x in the tail X there is some y in the head Y which satisfies the constraint
+	private boolean removeValue(Variable<T> head, Variable<T> tail, IConstraint constr)
+	{
+		boolean satisfactoryCombinationFound = false;
+		Set<T> toBeRemoved = new HashSet<>();
+		
+		for ( T x : tail.possibleValues() )
 		{
 			satisfactoryCombinationFound = false;
 			
-			var1.assign(val1);
+			tail.assign(x);
 			
-			for ( T val2 : var2.possibleValues() )
+			for ( T y : head.possibleValues() )
 			{
-				var2.assign(val2);
+				head.assign(y);
 				
-				if ( constr.isApplied(var1, var2) )
+				if ( constr.isApplied(head, tail) )
 				{
 					satisfactoryCombinationFound = true;
 					break;
 				}
 			}
 			
-			
+			if ( !satisfactoryCombinationFound )
+			{
+				toBeRemoved.add(x);
+			}			
 		}
 		
-		return changed;
+		return tail.possibleValues().removeAll(toBeRemoved);
 	}
+	
 	
 	// only checks assigned variable and its neighbors!
 	private Set<Variable<T>> forwardChecking(Set<Arc<T>> arcs, Variable<T> assigned)

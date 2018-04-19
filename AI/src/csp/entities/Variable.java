@@ -46,6 +46,12 @@ public class Variable<T>
 	}
 	
 	
+	public boolean emptyDomain()
+	{
+		return possibleValues.size() == 0;
+	}
+	
+	
 	public T assignedValue()
 	{
 		return assignedValue;
